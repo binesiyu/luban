@@ -3,8 +3,7 @@
     namespace = x.namespace
     tables = x.tables
 ~}}
-
-@echo off
+#bin/sh
 
 FLATC=$1
 SCHEMA_FILE=$2

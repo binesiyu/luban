@@ -14,17 +14,23 @@ namespace Luban.Job.Cfg.DataExporters
     {
         public static new FlatBuffersJsonExportor Ins { get; } = new();
 
-        public void WriteAsTable(List<Record> datas, Utf8JsonWriter x)
+        public void WriteAsTable(List<Record> datas, Utf8JsonWriter x,DefTable table)
         {
             x.WriteStartObject();
             // 如果修改了这个名字，请同时修改table.tpl
             x.WritePropertyName("data_list");
-            x.WriteStartArray();
+            if (!table.IsSingletonTable)
+            {
+                x.WriteStartArray();
+            }
             foreach (var d in datas)
             {
                 d.Data.Apply(this, x);
             }
-            x.WriteEndArray();
+            if (!table.IsSingletonTable)
+            {
+                x.WriteEndArray();
+            }
             x.WriteEndObject();
         }
 

@@ -55,8 +55,8 @@ namespace Luban.Server
             GenServer.Ins.Start(false, options.Port, ProtocolStub.Factories);
 
             GenServer.Ins.RegisterJob("cfg", new Luban.Job.Cfg.JobController());
-            GenServer.Ins.RegisterJob("proto", new Luban.Job.Proto.JobController());
-            GenServer.Ins.RegisterJob("db", new Luban.Job.Db.JobController());
+            //GenServer.Ins.RegisterJob("proto", new Luban.Job.Proto.JobController());
+            //GenServer.Ins.RegisterJob("db", new Luban.Job.Db.JobController());
 
             int processorCount = System.Environment.ProcessorCount;
             ThreadPool.SetMinThreads(Math.Max(4, processorCount), 5);

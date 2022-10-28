@@ -82,8 +82,9 @@ namespace Luban.Job.Cfg.Generate
         {
             var ass = DefAssembly.LocalAssebmly;
             var enums = types.Where(t => t is DefEnum).ToList();
-            var beans = types.Where(t => t is DefBean).Cast<DefBean>().ToList();
-            var tables = types.Where(t => t is DefTable).ToList();
+            var tables = types.Where(t => t is DefTable).Cast<DefTable>().ToList();
+            var beasnref = tables.Select(t => t.ValueTType.GetBeanAs<DefBean>()).ToList();
+            var beans = types.Where(t => t is DefBean).Cast<DefBean>().Except(beasnref).ToList();
 
             var maps = CollectKeyValueEntry(beans).KeyValueEntries.Values;
 

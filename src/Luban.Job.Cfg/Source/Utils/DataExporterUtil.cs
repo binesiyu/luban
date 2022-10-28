@@ -169,7 +169,7 @@ namespace Luban.Job.Cfg.Utils
                         SkipValidation = false,
                         Encoder = System.Text.Encodings.Web.JavaScriptEncoder.Create(System.Text.Unicode.UnicodeRanges.All),
                     });
-                    FlatBuffersJsonExportor.Ins.WriteAsTable(records, jsonWriter);
+                    FlatBuffersJsonExportor.Ins.WriteAsTable(records, jsonWriter,table);
                     jsonWriter.Flush();
                     return DataUtil.StreamToBytes(ss);
                 }

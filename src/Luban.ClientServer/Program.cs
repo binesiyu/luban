@@ -178,8 +178,8 @@ Options:
             GenServer.Ins.Start(true, options.Port, ProtocolStub.Factories);
 
             GenServer.Ins.RegisterJob("cfg", new Luban.Job.Cfg.JobController());
-            GenServer.Ins.RegisterJob("proto", new Luban.Job.Proto.JobController());
-            GenServer.Ins.RegisterJob("db", new Luban.Job.Db.JobController());
+            //GenServer.Ins.RegisterJob("proto", new Luban.Job.Proto.JobController());
+            //GenServer.Ins.RegisterJob("db", new Luban.Job.Db.JobController());
         }
 
         private static void StartClient(AllCommandLineOptions options, ProfileTimer profile)

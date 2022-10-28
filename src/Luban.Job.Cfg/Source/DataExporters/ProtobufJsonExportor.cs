@@ -12,7 +12,7 @@ namespace Luban.Job.Cfg.DataExporters
 {
     class ProtobufJsonExportor : JsonExportor
     {
-        public static new FlatBuffersJsonExportor Ins { get; } = new();
+        public static new ProtobufJsonExportor Ins { get; } = new();
 
         public void WriteAsTable(List<Record> datas, Utf8JsonWriter x)
         {

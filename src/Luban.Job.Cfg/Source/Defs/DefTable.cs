@@ -92,7 +92,13 @@ namespace Luban.Job.Cfg.Defs
 
         public bool NeedExport => Assembly.NeedExport(this.Groups);
 
-        public string OutputDataFile => string.IsNullOrWhiteSpace(_outputFile) ? FullName.Replace('.', '_').ToLower() : _outputFile;
+        public string OutputDataFile
+        {
+            get
+            {
+               return string.IsNullOrWhiteSpace(_outputFile) ? ValueType : _outputFile;
+            }
+        }
 
         public string InnerName => "_" + this.Name;
 

@@ -1,24 +1,5 @@
 ﻿namespace {{x.namespace}};
-
-// luban internal types begin
-struct Vector2 {
-    x:float;
-    y:float;
-}
-
-struct Vector3 {
-    x:float;
-    y:float;
-    z:float;
-}
-
-struct Vector4 {
-    x:float;
-    y:float;
-    z:float;
-    w:float;
-}
-// luban internal types end
+file_extension "bytes";
 
 {{~for enum in x.enums ~}}
 {{enum}}
