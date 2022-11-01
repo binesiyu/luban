@@ -390,14 +390,19 @@ namespace Luban.Job.Cfg.DataCreators
             {
                 if (type.IsNullable)
                 {
-                    string subType = x.Read().ToString().Trim();
+                    // string subType = x.Read().ToString().Trim();
+                    string subType = x.First.Trim();
                     if (subType == DefBean.BEAN_NULL_STR)
                     {
                         return null;
                     }
                     else if (subType != DefBean.BEAN_NOT_NULL_STR && subType != originBean.Name)
                     {
-                        throw new Exception($"type:'{type.Bean.FullName}' 可空标识:'{subType}' 不合法（只能为{DefBean.BEAN_NOT_NULL_STR}或{DefBean.BEAN_NULL_STR}或{originBean.Name})");
+                        //throw new Exception($"type:'{type.Bean.FullName}' 可空标识:'{subType}' 不合法（只能为{DefBean.BEAN_NOT_NULL_STR}或{DefBean.BEAN_NULL_STR}或{originBean.Name})");
+                    }
+                    else
+                    {
+                        x.Read();
                     }
                 }
                 return new DBean(type, originBean, CreateBeanFields(originBean, x));
